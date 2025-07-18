@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: usbmuxd-openrc
-Source: https://github.com/Nitrux/usbmuxd-openrc.git
+Upstream-Name: network-manager-openrc
+Source: https://github.com/Nitrux/network-manager-openrc.git
 
 Files: *
 Copyright: 2022 Uri Herrera <uri_herrera@nxos.org>
