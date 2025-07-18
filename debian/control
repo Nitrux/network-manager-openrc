@@ -1,4 +1,4 @@
-Source: usbmuxd-openrc
+Source: network-manager-openrc
 Section: misc
 Priority: important
 Maintainer: Uri Herrera <uri_herrera@nxos.org>
@@ -7,11 +7,11 @@ Standards-Version: 3.9.6
 Homepage: http://nxos.org
 
 
-Package: usbmuxd-openrc
+Package: network-manager-openrc
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, openrc, usbmuxd
+Depends: ${shlibs:Depends}, ${misc:Depends}, openrc, network-manager
 Conflicts: systemd, systemd-sysv
-Description: Package to add usbmuxd configuration for OpenRC.
- This package will add the boot scripts to use usbmuxd
+Description: Package to add network-manager configuration for OpenRC.
+ This package will add the boot scripts to use network-manager
  with OpenRC in Nitrux.
 
