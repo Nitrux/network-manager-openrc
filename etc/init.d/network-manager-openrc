@@ -2,21 +2,14 @@
 
 description="Starts the NetworkManager daemon"
 command="/usr/sbin/NetworkManager"
-command_args="--no-daemon ${NM_OPTS}"
-pidfile="/run/NetworkManager/NetworkManager.pid"
-
-# Using supervise-daemon is best for critical services like networking.
+command_args="--no-daemon"
 supervisor=supervise-daemon
 
 depend() {
-	# NetworkManager needs these core services to be running.
 	need dbus udev
-	# This is the key line: it tells other services that
-	# this script provides the main "net" service.
 	provide net
 }
 
 start_pre() {
-	# Create the runtime directory if it doesn't exist.
 	checkpath -d -m 0755 /run/NetworkManager
 }
