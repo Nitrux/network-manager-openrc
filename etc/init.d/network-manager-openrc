@@ -5,6 +5,8 @@ command="/usr/sbin/NetworkManager"
 command_args="--no-daemon"
 supervisor=supervise-daemon
 
+NM_KEYFILE_DIR="/var/lib/NetworkManager"
+
 depend() {
 	need dbus udev
 	provide net
@@ -12,4 +14,12 @@ depend() {
 
 start_pre() {
 	checkpath -d -m 0755 /run/NetworkManager
+
+	checkpath -d -m 0755 -o root:root "$NM_KEYFILE_DIR"
+
+	find "$NM_KEYFILE_DIR" -maxdepth 1 -type f \( ! -user root -o ! -group root \) -print0 2>/dev/null \
+		| xargs -0r chown root:root
+
+	find "$NM_KEYFILE_DIR" -maxdepth 1 -type f -perm /077 -print0 2>/dev/null \
+		| xargs -0r chmod 600
 }
